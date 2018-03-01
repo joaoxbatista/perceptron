@@ -58,10 +58,24 @@ $neuronio->treinamento($entradas, $respostas_esperadas);
 					
 						$entrada = [$_POST['entrada1'], $_POST['entrada2']];
 						$saida = $neuronio->classificar($entrada);
-					
+						
+						$resultado = "";
+
+						if($saida == -1)
+						{
+							$resultado = "negativo";
+						}
+						else if($saida == 1)
+						{
+							$resultado = "positívo";
+						}
+						else
+						{
+							$resultado = "neutro";
+						}
 				?>
 				<div class="alert alert-success">
-					Com a entrada <?= $entrada[0] ?> e <?= $entrada[1] ?>,  o neurônio obteve o sinal  <?= $saida ?>
+					Com a entrada <?= $entrada[0] ?> e <?= $entrada[1] ?>,  o neurônio classificou o resultado como <?= $resultado ?>
 				</div>
 				<?php
 					endif;
